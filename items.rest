@@ -1,0 +1,41 @@
+### GET all items
+GET http://localhost:8080/items
+Content-Type: application/json
+
+###
+
+### POST a new item
+POST http://localhost:8080/items
+Content-Type: application/json
+
+{
+  "name": "Sample Item",
+  "description": "This is a new item",
+  "category": "Example",
+  "price": 19.99,
+  "quantity": 10,
+  "manufacturer": "OpenAI Inc.",
+  "sku": "SKU-123456"
+}
+
+###
+
+### PUT update an item (replace ID below with a valid MongoDB _id)
+PUT http://localhost:8080/items/REPLACE_WITH_ITEM_ID
+Content-Type: application/json
+
+{
+  "name": "Updated Sample Item",
+  "description": "This item has been updated",
+  "category": "Updated Category",
+  "price": 24.99,
+  "quantity": 15,
+  "manufacturer": "OpenAI Inc.",
+  "sku": "SKU-654321"
+}
+
+###
+
+### DELETE an item (replace ID below with a valid MongoDB _id)
+DELETE http://localhost:8080/items/REPLACE_WITH_ITEM_ID
+Content-Type: application/json
