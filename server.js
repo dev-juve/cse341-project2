@@ -8,6 +8,8 @@ const { connectToDatabase } = require('./db/connection');
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const swaggerDocument = YAML.load('./swagger/swagger.yaml');
+const userRoutes = require('./routes/users');
+
 
 require('dotenv').config();
 
@@ -16,6 +18,7 @@ const PORT = process.env.PORT || 8080;
 // === Middleware ===
 app.use(cors());
 app.use(express.json());
+
 
 // Session middleware (must come before passport)
 app.use(
@@ -29,6 +32,7 @@ app.use(
 // Initialize Passport and session
 app.use(passport.initialize());
 app.use(passport.session());
+app.use('/users', userRoutes);
 
 // === Google OAuth Strategy ===
 passport.use(
