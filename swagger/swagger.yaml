@@ -4,7 +4,7 @@ info:
   description: API documentation for CSE 341 Project 2
   version: "1.0.0"
 servers:
-  - url: http://localhost:8080
+  - url: https://cse341-project2-elpb.onrender.com
 
 paths:
   /items:
