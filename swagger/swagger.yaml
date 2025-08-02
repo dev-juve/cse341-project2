@@ -6,6 +6,9 @@ info:
 servers:
   - url: https://cse341-project2-elpb.onrender.com
 
+security:
+  - BearerAuth: []
+
 paths:
   /items:
     get:
@@ -82,6 +85,7 @@ paths:
   /auth/register:
     post:
       summary: Register a new user
+      security: []  # No auth required
       requestBody:
         required: true
         content:
@@ -110,6 +114,7 @@ paths:
   /auth/login:
     post:
       summary: Login with email and password
+      security: []  # No auth required
       requestBody:
         required: true
         content:
@@ -147,6 +152,7 @@ paths:
   /auth/google:
     post:
       summary: Authenticate using Google ID token
+      security: []  # No auth required
       requestBody:
         required: true
         content:
@@ -190,6 +196,11 @@ paths:
           description: Server error
 
 components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
   schemas:
     Item:
       type: object
